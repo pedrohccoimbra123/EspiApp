@@ -7,16 +7,31 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation';
 import { localItems } from '../data/localData';
 
-const getRandomPlaces = (count: number) => {
-    const shuffled = [...localItems].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-};
-
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
-export default function NearbyPlaces() {
+type NearbyPlacesProps = {
+    excludeItemId?: string;  // id a ser excluído do sorteio
+};
+
+const getRandomPlaces = (count: number, excludeId?: string) => {
+    // Filtra os itens para remover o que tem o id igual ao excludeId
+    const filteredItems = excludeId
+        ? localItems.filter(item => item.id !== excludeId)
+        : localItems;
+
+    // Se o número de itens filtrados for menor que count, ajusta count
+    const finalCount = Math.min(count, filteredItems.length);
+
+    // Embaralha os itens filtrados
+    const shuffled = [...filteredItems].sort(() => 0.5 - Math.random());
+
+    // Pega os primeiros finalCount
+    return shuffled.slice(0, finalCount);
+};
+
+export default function NearbyPlaces({ excludeItemId }: NearbyPlacesProps) {
     const navigation = useNavigation<NavigationProp>();
-    const places = getRandomPlaces(3);
+    const places = getRandomPlaces(3, excludeItemId);
 
     const handlePlacePress = (itemId: string) => {
         navigation.navigate('Detail', { itemId });
@@ -27,8 +42,8 @@ export default function NearbyPlaces() {
             <Text style={styles.header}>Conheça Lugares Próximos:</Text>
             <View style={styles.placesContainer}>
                 {places.map((place) => (
-                    <TouchableOpacity 
-                        key={place.id} 
+                    <TouchableOpacity
+                        key={place.id}
                         style={styles.placeCard}
                         onPress={() => handlePlacePress(place.id)}
                         activeOpacity={0.7}

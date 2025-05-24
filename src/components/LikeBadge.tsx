@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const LikeBadge = () => {
-    const [likes, setLikes] = useState(0);
+const RatingBadge = () => {
+    const [rating, setRating] = useState<number>(0);
 
     useEffect(() => {
-        const randomLikes = Math.floor(Math.random() * 280) + 20;
-        setLikes(randomLikes);
+        const randomRating = (Math.random() * 0.5 + 4.5); // entre 4.5 e 5.0
+        const formatted = parseFloat(randomRating.toFixed(1)); // ex: 4.6
+        setRating(formatted);
     }, []);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.likeText}>{likes}</Text>
-            <TouchableOpacity>
-                <Icon name="heart" size={12} color="#fff" />
-            </TouchableOpacity>
+            <Text style={styles.ratingText}>{rating}</Text>
+            <Icon name="star" size={12} color="#fff" />
         </View>
     );
 };
@@ -32,12 +31,12 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         marginTop: 0,
     },
-    likeText: {
+    ratingText: {
         fontSize: 12,
         color: '#fff',
         fontWeight: '600',
-        marginRight: 8,
+        marginRight: 6,
     },
 });
 
-export default LikeBadge;
+export default RatingBadge;

@@ -13,7 +13,7 @@ import { RootStackParamList } from '../navigation';
 
 export default function ProfileScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const [activeTab, setActiveTab] = useState<'home' | 'profile'>('profile');
+  const [activeTab, setActiveTab] = useState<'home' | 'profile' | 'today'>('home');
 
   const handleHomePress = () => {
     setActiveTab('home');
@@ -22,6 +22,11 @@ export default function ProfileScreen() {
 
   const handleProfilePress = () => {
     setActiveTab('profile');
+  };
+
+  const handleTodayPress = () => {
+    setActiveTab('today');
+    navigation.navigate('Today');
   };
 
   return (
@@ -36,10 +41,11 @@ export default function ProfileScreen() {
         <ProfileOptionItem label="Sair" onPress={() => {}} type="danger" />
       </ScrollView>
 
-      <BottomBar 
-        activeTab={activeTab}
-        onHomePress={handleHomePress}
-        onProfilePress={handleProfilePress}
+      <BottomBar
+          activeTab={activeTab}
+          onHomePress={handleHomePress}
+          onProfilePress={handleProfilePress}
+          onTodayPress={handleTodayPress}
       />
     </View>
   );

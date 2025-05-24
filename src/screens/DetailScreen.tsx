@@ -14,7 +14,7 @@ export default function DetailScreen() {
   const { params } = useRoute<DetailRouteProp>();
   const navigation = useNavigation<NavigationProp>();
   const item = localItems.find((i) => i.id === params.itemId);
-  const [activeTab, setActiveTab] = useState<'home' | 'profile'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'profile' | 'today'>('home');
 
   if (!item) return <Text>Item não encontrado.</Text>;
 
@@ -28,28 +28,35 @@ export default function DetailScreen() {
     navigation.navigate('Profile');
   };
 
+  const handleTodayPress = () => {
+    setActiveTab('today');
+    navigation.navigate('Today');
+  };
+
   return (
-    <View style={styles.wrapper}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
-        <View style={styles.container}>
-          <Image
-            source={typeof item.image === 'string' ? { uri: item.image } : item.image}
-            style={styles.image}
-          />
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.description}>{item.description}</Text>
-          {item.imageText && <Text style={styles.imageText}>{item.imageText}</Text>}
-        </View>
+      <View style={styles.wrapper}>
+        <ScrollView contentContainerStyle={styles.scrollContent}>
+          <View style={styles.container}>
+            <Image
+                source={typeof item.image === 'string' ? { uri: item.image } : item.image}
+                style={styles.image}
+            />
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+            {item.imageText && <Text style={styles.imageText}>{item.imageText}</Text>}
+          </View>
 
-        <NearbyPlaces />
-      </ScrollView>
+          <NearbyPlaces excludeItemId={params.itemId} />
 
-      <BottomBar
-        activeTab={activeTab}
-        onHomePress={handleHomePress}
-        onProfilePress={handleProfilePress}
-      />
-    </View>
+        </ScrollView>
+
+        <BottomBar
+            activeTab={activeTab}
+            onHomePress={handleHomePress}
+            onProfilePress={handleProfilePress}
+            onTodayPress={handleTodayPress}
+        />
+      </View>
   );
 }
 

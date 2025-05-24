@@ -10,17 +10,17 @@ type Props = {
 
 export default function CardItem({ item, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Image
-      source={typeof item.image === 'string' ? { uri: item.image } : item.image}
-      style={styles.image}
-      />
-      <View style={{ marginBottom: 0, marginTop: 0 }}>
-        <LikeBadge />
-      </View>
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.description}>{item.description}</Text>
-    </TouchableOpacity>
+      <TouchableOpacity style={styles.card} onPress={onPress}>
+        <Image
+            source={typeof item.image === 'string' ? { uri: item.image } : item.image}
+            style={styles.image}
+        />
+        <View style={{ marginBottom: 0, marginTop: 0 }}>
+          <LikeBadge />
+        </View>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.description}>{item.description}</Text>
+      </TouchableOpacity>
   );
 }
 
@@ -41,10 +41,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: '600',
+    fontFamily: 'AncizarSerif-Regular',
     marginBottom: 4,
   },
   description: {
     fontSize: 14,
+    fontFamily: 'AncizarSerif-Regular',
     color: '#666',
   },
 });
