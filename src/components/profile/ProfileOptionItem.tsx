@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
+    fontFamily: 'AncizarSans-Regular',
     color: colors.text,
   },
 });

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   number: {
     fontSize: 18,
+    fontFamily: 'AncizarSans-Regular',
     fontWeight: '600',
     color: colors.text,
   },

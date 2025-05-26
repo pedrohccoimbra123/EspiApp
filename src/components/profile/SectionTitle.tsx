@@ -13,7 +13,8 @@ export default function SectionTitle({ title }: Props) {
 const styles = StyleSheet.create({
   title: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '900',
+    fontFamily: 'AncizarSans-Bold',
     color: colors.text,
     marginBottom: 12,
   },

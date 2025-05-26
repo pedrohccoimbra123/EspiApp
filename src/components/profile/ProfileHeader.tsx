@@ -29,11 +29,13 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontWeight: '700',
+    fontFamily: 'AncizarSerif-Regular',
     color: colors.text,
   },
   bio: {
     fontSize: 14,
     color: colors.subText,
     textAlign: 'center',
+    fontFamily: 'AncizarSans-Regular'
   },
 });
