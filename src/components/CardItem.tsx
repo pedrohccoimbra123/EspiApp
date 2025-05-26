@@ -10,17 +10,23 @@ type Props = {
 
 export default function CardItem({ item, onPress }: Props) {
   return (
-      <TouchableOpacity style={styles.card} onPress={onPress}>
+    <TouchableOpacity style={styles.card} onPress={onPress}>
+      {item.image && (
         <Image
-            source={typeof item.image === 'string' ? { uri: item.image } : item.image}
-            style={styles.image}
+          source={
+            typeof item.image === 'string'
+              ? { uri: item.image }
+              : item.image
+          }
+          style={styles.image}
         />
-        <View style={{ marginBottom: 0, marginTop: 0 }}>
-          <LikeBadge />
-        </View>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-      </TouchableOpacity>
+      )}
+      <View style={{ marginBottom: 0, marginTop: 0 }}>
+        <LikeBadge id_card={item.id} />
+      </View>
+      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.description}>{item.description}</Text>
+    </TouchableOpacity>
   );
 }
 

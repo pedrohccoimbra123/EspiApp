@@ -49,7 +49,7 @@ Quem é Paysandu sabe... aqui é raiz!`,
     imageText: `O Mangueirão é emoção pura! 
 Dia de clássico aqui é de arrepiar. 
 Bicolor e Remista fazem a cidade parar. 
-E não é só futebol não, o Mangueirão também recebe shows e eventos gigantes.`, 
+E não é só futebol não, o Mangueirão também recebe shows e eventos gigantes.`,
   },
   {
     id: '6',
@@ -148,7 +148,7 @@ Tudo fresquinho e com aquele jeitinho amazônico.`,
 frutas, comidas, peças antigas e aquele papo bom com os feirantes.`,
   },
   {
-    id: '18',
+    id: '17',
     title: 'Teatro da Paz',
     description: 'O glamour da Amazônia.',
     image: require('../../assets/images/teatro.png'),
@@ -156,7 +156,7 @@ frutas, comidas, peças antigas e aquele papo bom com os feirantes.`,
 O Teatro da Paz é orgulho de Belém, palco dos maiores espetáculos da nossa terra.`,
   },
   {
-    id: '19',
+    id: '18',
     title: 'Museu da Cidade de Belém',
     description: 'Onde a história vive.',
     image: require('../../assets/images/museucidade.png'),
@@ -164,7 +164,7 @@ O Teatro da Paz é orgulho de Belém, palco dos maiores espetáculos da nossa te
 Aqui a gente entende como Belém cresceu, mudou e continua sendo essa cidade cheia de vida e cultura.`,
   },
   {
-    id: '20',
+    id: '19',
     title: 'Centro Cultural Solar da Beira',
     description: 'Arte à beira do rio.',
     image: require('../../assets/images/solar.png'),
@@ -172,7 +172,7 @@ Aqui a gente entende como Belém cresceu, mudou e continua sendo essa cidade che
 Tudo com vista pro rio.`,
   },
   {
-    id: '22',
+    id: '20',
     title: 'Casa das Onze Janelas',
     description: 'Arte contemporânea na cidade antiga.',
     image: require('../../assets/images/onzejanelas.png'),
@@ -180,7 +180,7 @@ Tudo com vista pro rio.`,
 E ainda tem aquele café com vista pro rio que é de outro mundo.`,
   },
   {
-    id: '23',
+    id: '21',
     title: 'Porto Futuro',
     description: 'Lazer pra toda a família.',
     image: require('../../assets/images/portofuturo.png'),
@@ -188,7 +188,7 @@ E ainda tem aquele café com vista pro rio que é de outro mundo.`,
 Perfeito pra passar o domingo.`,
   },
   {
-    id: '24',
+    id: '22',
     title: 'Igreja de Santo Alexandre',
     description: 'Barroco amazônico.',
     image: require('../../assets/images/santoalexandre.png'),
@@ -197,7 +197,7 @@ Por dentro e por fora, é arte pura!
 Fica ali na Cidade Velha, pertinho do Forte.`,
   },
   {
-    id: '25',
+    id: '23',
     title: 'Praça Dom Pedro II',
     description: 'A mais antiga da cidade.',
     image: require('../../assets/images/dompedro.png'),
@@ -205,4 +205,3 @@ Fica ali na Cidade Velha, pertinho do Forte.`,
 Aqui é onde tudo começou. Tem história em cada pedra.`,
   },
 ];
-  
