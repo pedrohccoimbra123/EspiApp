@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.subText,
+    fontFamily: 'AncizarSerif-Regular',
     fontSize: 16,
   },
   activeText: {

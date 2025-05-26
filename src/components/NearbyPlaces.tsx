@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: 'AncizarSerif-Regular',
         textAlign: 'center',
         marginBottom: 16,
     },
@@ -87,5 +87,6 @@ const styles = StyleSheet.create({
     placeName: {
         fontSize: 14,
         textAlign: 'center',
+        fontFamily: 'AncizarSans-Regular'
     },
 });

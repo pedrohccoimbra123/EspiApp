@@ -79,17 +79,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: '700',
     marginBottom: 8,
+    fontFamily: 'AncizarSerif-Regular'
   },
   description: {
     fontSize: 16,
+    fontFamily: 'AncizarSerif-Regular',
     color: '#444',
   },
   imageText: {
     marginTop: 5,
     fontSize: 14,
     color: '#666',
-    fontStyle: 'italic',
+    fontFamily: 'AncizarSans-Regular',
   },
 });
