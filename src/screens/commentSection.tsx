@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { comments, Comment } from '../data/commentData'; // ideal tipar Comment
+import { comments, Comment } from '../data/commentData';
 import { commonStyles } from '../styles/common';
 import { colors } from '../styles/Colors';
 import { RootStackParamList } from '../navigation';
@@ -10,10 +10,8 @@ type CommentSectionRouteProp = RouteProp<RootStackParamList, 'CommentSection'>;
 
 export default function CommentSection() {
     const route = useRoute<CommentSectionRouteProp>();
-    // Verifica se route.params existe e extrai id_card
     const id_card = route.params?.id_card;
 
-    // Se id_card não estiver definido, renderiza mensagem de erro simples
     if (!id_card) {
         return (
             <View style={commonStyles.container}>
@@ -22,12 +20,13 @@ export default function CommentSection() {
         );
     }
 
-    // Filtra comentários convertendo id_card para string, para garantir a igualdade
+    // Forçar id_card para string para garantir comparação correta
+    const idCardStr = id_card.toString();
+
     const filteredComments = comments.filter(
-        (comment) => comment.id_card === id_card.toString()
+        (comment: Comment) => comment.id_card.toString() === idCardStr
     );
 
-    // Renderiza um comentário
     const renderComment = ({ item }: { item: Comment }) => (
         <View style={styles.commentCard}>
             <Image source={{ uri: item.avatar }} style={styles.avatar} />
