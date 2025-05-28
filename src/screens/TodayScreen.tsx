@@ -52,6 +52,7 @@ export default function TodayScreen() {
                 onHomePress={handleHomePress}
                 onProfilePress={handleProfilePress}
                 onTodayPress={handleTodayPress}
+                onRecomendacoesPress={handleTodayPress}
             />
         </View>
     );

@@ -67,6 +67,7 @@ export default function MainScreen() {
                 onHomePress={handleHomePress}
                 onProfilePress={handleProfilePress}
                 onTodayPress={handleTodayPress}
+                onRecomendacoesPress={handleTodayPress}
             />
         </View>
     );

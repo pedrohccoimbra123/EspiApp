@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { comments } from '../data/commentData';
+import { comments, Comment } from '../data/commentData'; // ideal tipar Comment
 import { commonStyles } from '../styles/common';
 import { colors } from '../styles/Colors';
 import { RootStackParamList } from '../navigation';
@@ -10,9 +10,33 @@ type CommentSectionRouteProp = RouteProp<RootStackParamList, 'CommentSection'>;
 
 export default function CommentSection() {
     const route = useRoute<CommentSectionRouteProp>();
-    const { id_card } = route.params;
+    // Verifica se route.params existe e extrai id_card
+    const id_card = route.params?.id_card;
 
-    const filteredComments = comments.filter(comment => comment.id_card === id_card);
+    // Se id_card não estiver definido, renderiza mensagem de erro simples
+    if (!id_card) {
+        return (
+            <View style={commonStyles.container}>
+                <Text style={styles.noComment}>ID do local não fornecido.</Text>
+            </View>
+        );
+    }
+
+    // Filtra comentários convertendo id_card para string, para garantir a igualdade
+    const filteredComments = comments.filter(
+        (comment) => comment.id_card === id_card.toString()
+    );
+
+    // Renderiza um comentário
+    const renderComment = ({ item }: { item: Comment }) => (
+        <View style={styles.commentCard}>
+            <Image source={{ uri: item.avatar }} style={styles.avatar} />
+            <View style={styles.textContainer}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.comment}>{item.comment}</Text>
+            </View>
+        </View>
+    );
 
     return (
         <View style={commonStyles.container}>
@@ -21,15 +45,7 @@ export default function CommentSection() {
                 <FlatList
                     data={filteredComments}
                     keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item }) => (
-                        <View style={styles.commentCard}>
-                            <Image source={{ uri: item.avatar }} style={styles.avatar} />
-                            <View style={styles.textContainer}>
-                                <Text style={styles.name}>{item.name}</Text>
-                                <Text style={styles.comment}>{item.comment}</Text>
-                            </View>
-                        </View>
-                    )}
+                    renderItem={renderComment}
                 />
             ) : (
                 <Text style={styles.noComment}>Nenhum comentário para este local ainda.</Text>

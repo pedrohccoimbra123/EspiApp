@@ -1,12 +1,12 @@
 // src/data/commentData.ts
 
-export interface Comment {
+export type Comment = {
     id: number;
-    id_card: string;
+    id_card: string; // ou number, dependendo do seu dado
     name: string;
     comment: string;
     avatar: string;
-}
+};
 
 export const comments: Comment[] = [
     { id: 1, id_card: '1', name: 'João Silva', comment: 'A basílica é perfeita, não é só um marco na história do Pará, como do catolicismo por inteiro!!', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },

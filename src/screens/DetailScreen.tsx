@@ -55,6 +55,7 @@ export default function DetailScreen() {
             onHomePress={handleHomePress}
             onProfilePress={handleProfilePress}
             onTodayPress={handleTodayPress}
+            onRecomendacoesPress={handleTodayPress}
         />
       </View>
   );

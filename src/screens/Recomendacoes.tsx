@@ -63,8 +63,9 @@ export default function Recomendacoes() {
     };
 
     const handleRecomendacoesPress = () => {
+        console.log('[Recomendacoes] handleRecomendacoesPress clicado - iniciando fetchRecommendation'); // LOG AQUI
         setActiveTab('recomendacoes');
-        fetchRecommendation(); // também pode recarregar caso queira
+        fetchRecommendation();
     };
 
     const renderCard = useCallback(

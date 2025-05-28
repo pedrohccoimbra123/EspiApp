@@ -46,6 +46,7 @@ export default function ProfileScreen() {
           onHomePress={handleHomePress}
           onProfilePress={handleProfilePress}
           onTodayPress={handleTodayPress}
+          onRecomendacoesPress={handleTodayPress}
       />
     </View>
   );
