@@ -6,6 +6,7 @@ import { localItems } from '../data/localData';
 import BottomBar from '../components/BottomBar';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import NearbyPlaces from '../components/NearbyPlaces';
+import Recomendacoes  from "screens/Recomendacoes";
 
 type DetailRouteProp = RouteProp<RootStackParamList, 'Detail'>;
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -32,6 +33,8 @@ export default function DetailScreen() {
     setActiveTab('today');
     navigation.navigate('Today');
   };
+
+
 
   return (
       <View style={styles.wrapper}>

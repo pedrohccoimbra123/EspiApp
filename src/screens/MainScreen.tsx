@@ -16,7 +16,7 @@ type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 export default function MainScreen() {
     const navigation = useNavigation<NavigationProp>();
     const [data, setData] = useState<Item[]>([]);
-    const [activeTab, setActiveTab] = useState<'home' | 'profile' | 'today'>('home');
+    const [activeTab, setActiveTab] = useState<'home' | 'profile' | 'today' | 'recomendacoes'>('home');
 
     useEffect(() => {
         setData(localItems);
@@ -35,6 +35,11 @@ export default function MainScreen() {
     const handleTodayPress = () => {
         setActiveTab('today');
         navigation.navigate('Today');
+    };
+
+    const handleRecomendacoesPress = () => {
+        setActiveTab('recomendacoes');
+        navigation.navigate('Recomendacoes');
     };
 
     const renderCard = useCallback(
@@ -67,7 +72,7 @@ export default function MainScreen() {
                 onHomePress={handleHomePress}
                 onProfilePress={handleProfilePress}
                 onTodayPress={handleTodayPress}
-                onRecomendacoesPress={handleTodayPress}
+                onRecomendacoesPress={handleRecomendacoesPress} // ✅ Corrigido aqui
             />
         </View>
     );

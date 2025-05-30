@@ -1,49 +1,67 @@
-from fastapi import FastAPI, Query
-from pydantic import BaseModel
-import requests
-import json
-
-# 🚀 Inicializa o app FastAPI
-app = FastAPI()
-
-# 📄 Carrega os dados do JSON na inicialização
-with open("local_data.json", "r", encoding="utf-8") as file:
-    items = json.load(file)
-
-
-# 🏗️ Função para gerar o prompt
-def build_prompt(user_query, items):
-    prompt = "Considere os seguintes locais em Belém. Qual deles melhor corresponde ao que o usuário está procurando? Retorne o ID do local.\n\n"
-    for i, item in enumerate(items, 1):
-        prompt += (
-            f"{i}. {item['title']} - {item['description']} {item['imageText']}\n\n"
-        )
-    prompt += f"O usuário diz: '{user_query}'\n\nResponda apenas com o título do local mais adequado."
-    return prompt
-
-
-# 🎯 Modelo de input da API
-class QueryRequest(BaseModel):
-    user_query: str
-
-
-# 🧠 Endpoint principal
-@app.post("/match")
-def match_location(request: QueryRequest):
-    prompt = build_prompt(request.user_query, items)
-
-    ollama_payload = {"model": "llama3", "prompt": prompt, "stream": False}
-
-    try:
-        response = requests.post(
-            "http://localhost:11434/api/generate", json=ollama_payload
-        )
-        response.raise_for_status()
-
-        result = response.json()
-        reply = result["response"].strip()
-
-        return {"best_match": reply}
-
-    except requests.exceptions.RequestException as e:
-        return {"error": str(e)}
+# from fastapi import FastAPI
+# from pydantic import BaseModel, Field
+# from langchain_core.output_parsers import PydanticOutputParser
+# from langchain_core.prompts import PromptTemplate
+# from langchain_core.runnables import Runnable
+# from langchain_ollama import ChatOllama
+# import json
+#
+# # FastAPI app
+# app = FastAPI()
+#
+# # Carregar os dados locais
+# with open("local_data.json", "r", encoding="utf-8") as file:
+#     items = json.load(file)
+#
+# # Função auxiliar para formatar locais
+# def formatar_locais(items):
+#     return "\n".join(
+#         f"{i}. {item['title']} - {item['description']} {item['imageText']}"
+#         for i, item in enumerate(items, 1)
+#     )
+#
+# # Modelo de entrada da requisição
+# class QueryRequest(BaseModel):
+#     user_query: str
+#
+# # Modelo Pydantic de saída estruturada
+# class LocalMatch(BaseModel):
+#     numero_identificador: int = Field(..., description="Número do local que melhor corresponde ao interesse do usuário")
+#
+# # Output parser
+# parser = PydanticOutputParser(pydantic_object=LocalMatch)
+#
+# # Template com instruções claras
+# template = """
+# Considere os seguintes locais em Belém. Qual deles melhor corresponde ao que o usuário está procurando?
+#
+# Responda SOMENTE no seguinte formato JSON:
+# {format_instructions}
+#
+# Locais disponíveis:
+# {locais}
+#
+# O usuário diz: '{user_query}'
+# """
+#
+# # Prompt com instruções embutidas
+# prompt = PromptTemplate.from_template(template).partial(
+#     format_instructions=parser.get_format_instructions()
+# )
+#
+# # LLM local
+# llm = ChatOllama(model="llama3")
+#
+# # Chain com LangChain
+# chain: Runnable = prompt | llm | parser
+#
+# # Rota da API
+# @app.post("/match")
+# def match_location(request: QueryRequest):
+#     try:
+#         locais = formatar_locais(items)
+#         result = chain.invoke({"user_query": request.user_query, "locais": locais})
+#         print('vagabundo')
+#         return {"numero_identificador": result.numero_identificador}
+#     except Exception as e:
+#         return {"error": str(e)}

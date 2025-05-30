@@ -13,7 +13,7 @@ export type RootStackParamList = {
     Main: undefined;
     Detail: { itemId: string };
     Profile: undefined;
-    CommentSection: undefined;
+    CommentSection: { id_card: string };  // <- Corrigido aqui
     Recomendacoes: undefined; // ✅ Adicionar no tipo
 };
 

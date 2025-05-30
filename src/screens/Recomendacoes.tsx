@@ -1,104 +1,146 @@
-// src/screens/Recomendacoes.tsx
-
-import React, { useEffect, useState, useCallback } from 'react';
-import { View, FlatList, ActivityIndicator, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
-import { RootStackParamList } from '../navigation';
-import { Item } from '../types/item';
-import { commonStyles } from '../styles/common';
-
-import CardItem from '../components/CardItem';
-import BottomBar from '../components/BottomBar';
+import React, { useState } from 'react';
+import {
+    View, Text, Image, StyleSheet, ScrollView, TextInput, Button, KeyboardAvoidingView, Platform
+} from 'react-native';
 import { MatchService } from '../service/MatchService';
+import { localItems } from '../data/localData';
+import { Item } from '../types/item';
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+export default function RecomendacoesScreen() {
+    const [query, setQuery] = useState('');
+    const [localEncontrado, setLocalEncontrado] = useState<Item | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-export default function Recomendacoes() {
-    const navigation = useNavigation<NavigationProp>();
-    const [recommendedItem, setRecommendedItem] = useState<Item[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [activeTab, setActiveTab] = useState<'home' | 'profile' | 'today' | 'recomendacoes'>('recomendacoes');
+    async function buscarRecomendacao() {
+        if (!query.trim()) {
+            setError('Por favor, digite uma consulta válida.');
+            setLocalEncontrado(null);
+            return;
+        }
 
-    const fetchRecommendation = async () => {
         setLoading(true);
+        setError(null);
+        setLocalEncontrado(null);
+
         try {
-            const { best_match } = await MatchService.getBestMatch("Quero natureza e tranquilidade");
+            const resultado = await MatchService.getBestMatch(query);
+            console.log('[Recomendacoes] Resultado da API:', resultado);
 
-            const allItems = await MatchService.getAllItems();
-            const matched = allItems.items.find((item: Item) =>
-                item.title.toLowerCase() === best_match.toLowerCase()
-            );
+            const idExtraido = resultado?.numero_identificador;
 
-            if (matched) {
-                setRecommendedItem([matched]);
+            if (typeof idExtraido !== 'number') {
+                setError('Resposta inválida da API: número identificador ausente ou inválido.');
+                return;
+            }
+
+            const itemEncontrado = localItems.find((item) => Number(item.id) === idExtraido);
+
+            if (itemEncontrado) {
+                setLocalEncontrado(itemEncontrado);
             } else {
-                Alert.alert("Nenhum local encontrado para:", best_match);
+                setError(`Local com ID ${idExtraido} não encontrado no localData.ts`);
             }
         } catch (err) {
-            Alert.alert("Erro ao buscar recomendação", (err as Error).message);
+            setError('Erro ao buscar recomendação. Tente novamente.');
+            console.error('Erro ao buscar recomendação:', err);
         } finally {
             setLoading(false);
         }
-    };
-
-    useEffect(() => {
-        fetchRecommendation();
-    }, []);
-
-    const handleHomePress = () => {
-        setActiveTab('home');
-        fetchRecommendation(); // 🔥 Recarrega a recomendação ao clicar em "Descubra"
-    };
-
-    const handleProfilePress = () => {
-        setActiveTab('profile');
-        navigation.navigate('Profile');
-    };
-
-    const handleTodayPress = () => {
-        setActiveTab('today');
-        navigation.navigate('Today');
-    };
-
-    const handleRecomendacoesPress = () => {
-        console.log('[Recomendacoes] handleRecomendacoesPress clicado - iniciando fetchRecommendation'); // LOG AQUI
-        setActiveTab('recomendacoes');
-        fetchRecommendation();
-    };
-
-    const renderCard = useCallback(
-        ({ item }: { item: Item }) => (
-            <CardItem
-                item={item}
-                onPress={() => navigation.navigate('Detail', { itemId: item.id })}
-            />
-        ),
-        [navigation]
-    );
+    }
 
     return (
-        <View style={commonStyles.wrapper}>
-            <View style={commonStyles.container}>
-                {loading ? (
-                    <ActivityIndicator size="large" color="#0000ff" />
-                ) : (
-                    <FlatList
-                        data={recommendedItem}
-                        keyExtractor={(item) => item.id}
-                        renderItem={renderCard}
-                        showsVerticalScrollIndicator={false}
-                    />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            style={{ flex: 1 }}
+        >
+            <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+                <TextInput
+                    style={styles.input}
+                    placeholder="Digite sua consulta aqui"
+                    value={query}
+                    onChangeText={setQuery}
+                    onSubmitEditing={buscarRecomendacao}
+                    returnKeyType="search"
+                    editable={!loading}
+                    autoCorrect={false}
+                />
+                <Button
+                    title={loading ? 'Buscando...' : 'Buscar Recomendação'}
+                    onPress={buscarRecomendacao}
+                    disabled={loading}
+                />
+
+                {error && <Text style={styles.errorText}>{error}</Text>}
+
+                {localEncontrado && (
+                    <>
+                        <Image
+                            source={
+                                typeof localEncontrado.image === 'string' ?
+                                    { uri: localEncontrado.image } :
+                                    localEncontrado.image
+                            }
+                            style={styles.image}
+                            resizeMode="cover"
+                        />
+                        <Text style={styles.title}>{localEncontrado.title}</Text>
+                        <Text style={styles.description}>{localEncontrado.description}</Text>
+                        {localEncontrado.imageText && (
+                            <Text style={styles.imageText}>{localEncontrado.imageText}</Text>
+                        )}
+                    </>
                 )}
-            </View>
-            <BottomBar
-                activeTab={activeTab}
-                onHomePress={handleHomePress}
-                onProfilePress={handleProfilePress}
-                onTodayPress={handleTodayPress}
-                onRecomendacoesPress={handleRecomendacoesPress}
-            />
-        </View>
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 16,
+        alignItems: 'center',
+    },
+    input: {
+        width: '100%',
+        height: 44,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        marginBottom: 12,
+        fontSize: 16,
+    },
+    errorText: {
+        marginTop: 8,
+        color: 'red',
+        fontSize: 14,
+        textAlign: 'center',
+    },
+    image: {
+        width: '100%',
+        height: 340,
+        borderRadius: 12,
+        marginTop: 20,
+        marginBottom: 16,
+    },
+    title: {
+        fontSize: 24,
+        marginBottom: 8,
+        fontFamily: 'AncizarSerif-Regular',
+        textAlign: 'center',
+    },
+    description: {
+        fontSize: 16,
+        fontFamily: 'AncizarSerif-Regular',
+        color: '#444',
+        textAlign: 'center',
+        marginBottom: 8,
+    },
+    imageText: {
+        fontSize: 14,
+        color: '#666',
+        fontFamily: 'AncizarSans-Regular',
+        textAlign: 'justify',
+    },
+});
