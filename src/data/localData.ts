@@ -162,10 +162,17 @@ export const localItems: Item[] = [
     imageText: `Viaje no tempo ao adentrar a majestosa Igreja de Santo Alexandre, um dos mais belos exemplares da arquitetura barroca no Brasil. Seus altares dourados, suas pinturas sacras e a imponência de sua construção contam histórias de fé e arte que atravessaram séculos. Mais do que um templo religioso, é um museu de arte sacra e um convite à contemplação e ao silêncio. Sinta a grandiosidade deste lugar e se conecte com a rica história religiosa e artística de Belém.`,
   },
   {
-    id: '23',
-    title: 'Praça Dom Pedro II',
-    description: 'A mais antiga da cidade.',
-    image: require('../../assets/images/dompedro.png'),
-    imageText: `No coração histórico de Belém, a Praça Dom Pedro II é um convite para uma imersão no passado colonial da cidade. Rodeada por edifícios que testemunharam séculos de história, como o Palácio Antônio Lemos, esta praça exala um charme atemporal. Sente-se em um de seus bancos, observe o movimento e imagine as carruagens e personagens que um dia caminharam por ali. É o ponto de partida ideal para explorar o centro histórico e desvendar as camadas de história que Belém guarda. Que segredos ela vai tem para revelar?`,
+    id: '24',
+    title: 'Tacaca Nazaré',
+    description: 'Um dos mais tradicionais e famosos da cidade',
+    image: require('../../assets/images/TacacaNazare.png'),
+    imageText: `Muito além de um simples ponto gastronômico, o Tacacá da Nazaré é um verdadeiro símbolo da cultura paraense. Reconhecido como Patrimônio Cultural Imaterial do Brasil, este local é uma parada obrigatória para quem deseja saborear a essência da Amazônia em uma única cuia. Localizado na movimentada Avenida Nazaré, em frente à majestosa Basílica, o tradicional tacacá servido ali mantém viva uma receita ancestral com jambu, tucupi e camarão seco — uma explosão de sabores que encanta gerações. Mais do que comida, é uma experiência afetiva e sensorial que conecta passado, presente e identidade de um povo.`,
+  },
+  {
+    id: '25',
+    title: 'COBRA GRANDE GULOSA',
+    description: 'Uma das mais tradicionais e famosos da cidade',
+    image: require('../../assets/images/cobragrande.png'),
+    imageText: `Muito além de um simples ponto gastronômico, o Tacacá da Nazaré é um verdadeiro símbolo da cultura paraense. Reconhecido como Patrimônio Cultural Imaterial do Brasil, este local é uma parada obrigatória para quem deseja saborear a essência da Amazônia em uma única cuia. Localizado na movimentada Avenida Nazaré, em frente à majestosa Basílica, o tradicional tacacá servido ali mantém viva uma receita ancestral com jambu, tucupi e camarão seco — uma explosão de sabores que encanta gerações. Mais do que comida, é uma experiência afetiva e sensorial que conecta passado, presente e identidade de um povo.`,
   },
 ];
