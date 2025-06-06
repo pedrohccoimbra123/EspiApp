@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://192.168.86.249:8000'; // Use a porta do servidor FastAPI, não do Expo
+const API_URL = 'http://172.30.43.186:8000'; // Use a porta do servidor FastAPI, não do Expo
 
 export const MatchService = {
     async getBestMatch(userQuery: string) {
@@ -12,17 +12,6 @@ export const MatchService = {
             return response.data;
         } catch (error: any) {
             console.error('Erro ao fazer a requisição para /match:', error.message);
-            throw error;
-        }
-    },
-
-    async getAllItems() {
-        try {
-            console.log('[MatchService] getAllItems chamada');
-            const response = await axios.get(`${API_URL}/items`);
-            return response.data;
-        } catch (error: any) {
-            console.error('Erro ao fazer a requisição para /items:', error.message);
             throw error;
         }
     },

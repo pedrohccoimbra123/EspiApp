@@ -1,0 +1,178 @@
+// src/data/localData.ts
+import { Item } from 'types/item';
+
+export const localItems: Item[] = [
+    {
+        id: '1',
+        title: 'Basílica Santuário de Nossa Senhora de Nazaré',
+        description: 'Um marco religioso no nosso Estado.',
+        image: require('../../assets/images/basilica.png'),
+        imageText: `Mais do que um cartão-postal, a Basílica é o coração pulsante da fé paraense, sendo o epicentro do maior evento religioso do Brasil: o Círio de Nazaré, que acontece todo segundo domingo de outubro e arrasta milhões de devotos pelas ruas da cidade em uma impressionante manifestação de religiosidade e cultura popular. Sua arquitetura em estilo neoclássico é adornada por mármores importados, pinturas sacras e uma réplica da imagem de Nossa Senhora de Nazaré, considerada milagrosa. Além da dimensão espiritual, o entorno da Basílica transforma-se em espaço de celebração, comércio de velas, fitas do Círio, comidas típicas e encontros familiares.`,
+    },
+    {
+        id: '2',
+        title: 'Igreja da Sé',
+        description: 'Símbolo de tradição religiosa.',
+        image: require('../../assets/images/igrejase.png'),
+        imageText: `Símbolo do início da colonização portuguesa na Amazônia, a Igreja da Sé está localizada na Cidade Velha, o núcleo original de Belém. Sua fachada sóbria contrasta com o interior ricamente ornamentado, que reflete a influência do barroco e do rococó. Além do valor religioso, a Igreja da Sé é uma referência histórica: foi ali que se celebrou a primeira missa da cidade. O Largo da Sé ao redor é um ponto de encontro cultural e social, com vista privilegiada para a Baía do Guajará e próximo ao complexo turístico do Forte do Presépio, compondo um roteiro essencial para quem deseja entender as origens de Belém.`,
+    },
+    {
+        id: '3',
+        title: 'Tacacá do Renato',
+        description: 'Cultura e arquitetura colonial.',
+        image: require('../../assets/images/tacaca.png'),
+        imageText: `Localizado na Praça Batista Campos, um dos recantos mais arborizados e agradáveis da cidade, o Tacacá do Renato se destaca por perpetuar a tradição gastronômica paraense, servindo o tacacá como manda a tradição: bem quente, com goma, jambu e camarão seco, em uma cuia de origem indígena. Além do sabor, ali está o ritual amazônico de comer na rua, de maneira despojada, entre amigos ou em família, enquanto se aprecia o movimento da praça. O local é símbolo da gastronomia de resistência, que mantém vivas as técnicas e ingredientes ancestrais da culinária paraense.
+`,
+    },
+    {
+        id: '4',
+        title: 'Curuzu - Estádio do Paysandu',
+        description: 'Paixão e tradição bicolor.',
+        image: require('../../assets/images/curuzu.png'),
+        imageText: `A Curuzu é mais que um estádio; é um território simbólico para a cultura esportiva de Belém. A sede do Paysandu, um dos clubes mais tradicionais da região Norte, com uma torcida vibrante e apaixonada, é conhecida como “a casa do Papão”. O estádio preserva uma atmosfera clássica, onde a proximidade entre jogadores e torcida cria um ambiente único, de pura entrega e emoção. O bairro onde está localizada a Curuzu também é repleto de comércio popular e bares que servem pratos típicos nos dias de jogo, como a famosa maniçoba, o churrasquinho e o vatapá.`,
+    },
+    {
+        id: '5',
+        title: 'Estádio Mangueirão',
+        description: 'O palco do futebol paraense.',
+        image: require('../../assets/images/mangueirao.png'),
+        imageText: `O Mangueirão, oficialmente Estádio Olímpico do Pará, é símbolo da modernidade esportiva de Belém, sendo palco dos maiores clássicos do futebol paraense: Remo x Paysandu — o Re-Pa —, considerado um dos maiores e mais tradicionais clássicos do Brasil. Mais do que esporte, o Mangueirão é local de afirmação cultural e de expressão da identidade amazônica, reunindo milhares de pessoas em momentos de euforia coletiva. Recentemente modernizado, o estádio também recebe grandes shows, festivais e eventos comunitários, se consolidando como um espaço multifuncional da cidade.
+`,
+    },
+    {
+        id: '6',
+        title: 'Baenão - Estádio do Remo',
+        description: 'Onde bate forte o coração azulino.',
+        image: require('../../assets/images/baenao.png'),
+        imageText: `Com forte apelo afetivo, o Baenão é o lar do Clube do Remo, rival histórico do Paysandu. Diferente do Mangueirão, o Baenão tem uma estrutura mais modesta, mas carrega a mística de ser um dos estádios mais antigos do Norte do Brasil, inaugurado em 1917. A torcida azulina, conhecida como Fenômeno Azul, lota as arquibancadas, transformando o estádio em um verdadeiro caldeirão. Ao redor do Baenão, o comércio fervilha em dias de jogo, com vendedores de açaí, sanduíches de mortadela e cervejas geladas, compondo um típico cenário belenense.
+
+`,
+    },
+    {
+        id: '7',
+        title: 'Mangal das Garças',
+        description: 'Um pedaço da Amazônia no meio da cidade.',
+        image: require('../../assets/images/mangal.png'),
+        imageText: `Localizado às margens do rio Guamá, no bairro da Cidade Velha, o Mangal das Garças é um exemplo notável de como Belém vem ressignificando e valorizando seus espaços urbanos. Inaugurado em 2005, o parque combina preservação ambiental, lazer e cultura, com ambientes como o viveiro das aves, o borboletário, o farol-mirante e o restaurante Manjar das Garças, que oferece releituras sofisticadas da culinária regional. O Mangal também representa a importância dos rios para a vida belenense, promovendo uma conexão direta com a paisagem natural da cidade.`,
+    },
+    {
+        id: '8',
+        title: 'Ver-o-Peso',
+        description: 'O coração de Belém.',
+        image: require('../../assets/images/veropeso.png'),
+        imageText: `O Ver-o-Peso é a mais autêntica representação da alma belenense. Fundado no século XVII, é considerado uma das maiores feiras a céu aberto da América Latina. Ali, o cotidiano amazônico se revela sem filtros: mulheres vendendo ervas medicinais e perfumes artesanais, conhecidos como “garrafadas” e “banhos de cheiro”; peixes como o filhote e o tucunaré recém-pescados; frutas exóticas como cupuaçu, taperebá e bacuri; e, claro, o tradicional açaí, consumido puro ou acompanhado de peixe frito e farinha. O Ver-o-Peso sintetiza o modo de vida paraense: comunitário, resiliente, criativo e profundamente conectado à natureza`,
+    },
+    {
+        id: '9',
+        title: 'Estação das Docas',
+        description: 'Pôr do sol mais bonito da cidade.',
+        image: require('../../assets/images/docas.png'),
+        imageText: `Símbolo da revitalização urbana e turística de Belém, a Estação das Docas resgatou a memória portuária da cidade, transformando antigos armazéns do século XIX em espaços elegantes e acolhedores. O local oferece o melhor da gastronomia paraense — com destaque para pratos à base de peixes amazônicos, como o filhote e o pirarucu —, além de cervejas artesanais, entre elas a premiada Amazon Beer, feita com ingredientes regionais como açaí e bacuri. O calçadão de frente para o rio é ideal para contemplar o pôr do sol, que tinge o céu e as águas da baía com tons dourados e alaranjados, criando um espetáculo natural.`,
+    },
+    {
+        id: '10',
+        title: 'Forte do Presépio',
+        description: 'O marco inicial de Belém.',
+        image: require('../../assets/images/presepio.png'),
+        imageText: `Localizado no marco zero da cidade, o Forte do Presépio é o ponto onde nasceu Belém, em 1616, com a construção da Fortaleza do Castelo do Senhor Santo Cristo do Presépio de Belém. O local preserva canhões originais e oferece uma vista privilegiada para a baía do Guajará. Além de ser um importante sítio arqueológico, onde foram encontrados vestígios indígenas anteriores à ocupação europeia, o Forte é um espaço de educação patrimonial, que evidencia as múltiplas camadas culturais de Belém: indígena, portuguesa, africana e cabocla.`,
+    },
+    {
+        id: '11',
+        title: 'Museu Emílio Goeldi',
+        description: 'Amazônia viva no meio da cidade.',
+        image: require('../../assets/images/goeldi.png'),
+        imageText: `Fundado em 1866, o Museu Paraense Emílio Goeldi é referência internacional em estudos sobre a biodiversidade e as culturas amazônicas. Seu parque zoobotânico, com cerca de 5 hectares, abriga espécies raras e emblemáticas da flora e fauna amazônicas, como o peixe-boi, o macaco cuxiú e a vitória-régia. Além disso, o museu realiza pesquisas científicas de ponta e abriga acervos arqueológicos e etnográficos valiosos, que ajudam a compreender a riqueza sociocultural da Amazônia. O espaço é um oásis de conhecimento e natureza dentro da cidade, sendo frequentado tanto por pesquisadores quanto por famílias e turistas.`,
+    },
+    {
+        id: '12',
+        title: 'Bosque Rodrigues Alves',
+        description: 'A floresta encantada de Belém.',
+        image: require('../../assets/images/bosque.png'),
+        imageText: `Também conhecido como Jardim Zoobotânico da Amazônia, o Bosque Rodrigues Alves é um dos poucos exemplos de “floresta urbana” do mundo. Criado no início do século XX, inspirado nos jardins franceses, o espaço abriga mais de 80 mil espécies de plantas, muitas delas endêmicas, além de animais típicos da região, como macacos, jacarés e aves. O bosque é uma espécie de refúgio para os belenenses, um local para escapar do ritmo acelerado da cidade e se reconectar com a natureza. Representa também a relação histórica e afetiva de Belém com a floresta, a biodiversidade e o meio ambiente.`,
+    },
+    {
+        id: '13',
+        title: 'Praça Batista Campos',
+        description: 'O quintal da cidade.',
+        image: require('../../assets/images/batista.png'),
+        imageText: `Imagine um oásis  de tranquilidade e beleza no coração da cidade. A Praça Batista Campos vai além de uma simples praça, é um jardim botânico em miniatura, com suas pontes charmosas que cruzam lagos com peixes coloridos, enquanto árvores centenárias sussurram histórias do passado. Em cada canto, há um convite ao descanso, socialização e contemplação. Deixe a brisa te guiar entre sombras e flores, e descubra por que este é o lugar onde os belenenses recarregam corpo e alma`,
+    },
+    {
+        id: '14',
+        title: 'Praça da República',
+        description: 'Cultura e história.',
+        image: require('../../assets/images/republica.png'),
+        imageText: `Centro pulsante da vida cultural de Belém, onde o passado e o presente caminhão lado a lado. Em um só lugar, arte, história e feiras de artesanato se encontram. Nesse mesmo espaço o imponente teatro da Paz se destaca, como uma joia da arquitetura. Já imaginou passar uma tarde descobrindo talentos locais ao som de carimbó?`,
+    },
+    {
+        id: '15',
+        title: 'Ilha do Combu',
+        description: 'Natureza e chocolate artesanal.',
+        image: require('../../assets/images/combu.png'),
+        imageText: `Prepare-se para uma aventura amazônica a poucos minutos de barco do centro de Belém. A ilha do Combu  é um santuário ecológico que te conecta diretamente com a força da floresta. Navegando pelos igarapés sinuosos você descobre  um mundo de sabores e experiências únicas: Desde comunidades ribeirinhas que oferecem restaurantes flutuantes, servindo o melhor da culinária local, até trilhas pela floresta, que te levam para dentro da mata, onde se encontra a famosa fábrica de chocolate artesanal.  Você já cruzou um rio para almoçar em meio a natureza ?`,
+    },
+    {
+        id: '16',
+        title: 'Mercado de São Brás',
+        description: 'Sabores e história.',
+        image: require('../../assets/images/saobras.png'),
+        imageText: `Com sua arquitetura inspirada nos antigos mercados europeus, o Mercado de São Brás, é um mergulho sensorial no cotidiano paraense. Ao entrar você é recebido por amplos corredores com estruturas metálicas imponentes. Cheiros, cores e sabores intensos em um prédio histórico revitalizado.   Prepare-se para aguçar seus sentidos e se perder (e se encontrar!) na riqueza cultural e culinária que só Belém oferece. O que você vai experimentar primeiro? 
+`,
+    },
+    {
+        id: '17',
+        title: 'Teatro da Paz',
+        description: 'O glamour da Amazônia.',
+        image: require('../../assets/images/teatro.png'),
+        imageText: `Um palácio neoclássico em plena Amazônia. O teatro é  uma obra-prima arquitetônica que respira história e arte em cada detalhe. Com lustres de cristal e detalhes em ouro, esse espaço guarda mais que espetáculos, guarda a história do ciclo da borracha. Sinta a emoção de estar em um dos teatros mais bonitos do Brasil e imagine as histórias e aplausos que ecoaram por essas paredes Já pensou em assistir a uma ópera onde outrora sentaram barões e presidentes?`,
+    },
+    {
+        id: '18',
+        title: 'Museu da Cidade de Belém',
+        description: 'Onde a história vive.',
+        image: require('../../assets/images/museucidade.png'),
+        imageText: `Para desvendar os segredos e a evolução de Belém, o Museu da Cidade de Belém é a sua máquina do tempo. Localizado em um prédio histórico com uma vista privilegiada da Baía do Guajará, o museu revela histórias urbanas, transformações arquitetônicas e memórias afetivas da cidade. Explore suas exposições e descubra como uma pequena vila se transformou na metrópole vibrante que é hoje. Que parte da história de Belém você quer conhecer mais profundamente?`,
+    },
+    {
+        id: '19',
+        title: 'Centro Cultural Solar da Beira',
+        description: 'Arte à beira do rio.',
+        image: require('../../assets/images/solar.png'),
+        imageText: `Escondido em um casarão colonial às margens da Baía do Guajará, o Centro Cultural Solar da Beira é um tesouro que conecta a arte, a cultura e a vista deslumbrante da orla. Este espaço charmoso é um convite para passear por exposições de arte, participar de eventos culturais e simplesmente relaxar apreciando um dos mais belos pores do sol de Belém. Permita-se ser envolvido pela atmosfera inspiradora e descubra a riqueza artística que floresce neste canto especial da cidade.`,
+    },
+    {
+        id: '20',
+        title: 'Casa das Onze Janelas',
+        description: 'Arte contemporânea na cidade antiga.',
+        image: require('../../assets/images/onzejanelas.png'),
+        imageText: `Com uma arquitetura imponente e uma vista deslumbrante para a Baía do Guajará, a Casa das Onze Janelas é muito mais do que um antigo casarão colonial. É um complexo cultural vibrante que respira arte contemporânea e história. Explore suas galerias, admire obras de artistas renomados e se perca na beleza do seu entorno, que inclui ruínas preservadas e jardins que convidam à contemplação. Cada janela é um novo olhar sobre a arte e a paisagem paraense. O que você vai descobrir através delas?`,
+    },
+    {
+        id: '21',
+        title: 'Porto Futuro',
+        description: 'Lazer pra toda a família.',
+        image: require('../../assets/images/portofuturo.png'),
+        imageText: `O Porto Futuro é a reinvenção de Belém, um complexo moderno e vibrante que transformou a antiga área portuária em um espaço de lazer e convívio para todos. Com restaurantes, bares, espaços para shows e uma vista panorâmica para a Baía do Guajará, este lugar é perfeito para sentir a brisa do rio, apreciar o pôr do sol e viver a efervescência da vida noturna belenense. Prepare-se para se surpreender com a vitalidade e a beleza deste novo cartão-postal da cidade.`,
+    },
+    {
+        id: '22',
+        title: 'Igreja de Santo Alexandre',
+        description: 'Barroco amazônico.',
+        image: require('../../assets/images/santoalexandre.png'),
+        imageText: `Viaje no tempo ao adentrar a majestosa Igreja de Santo Alexandre, um dos mais belos exemplares da arquitetura barroca no Brasil. Seus altares dourados, suas pinturas sacras e a imponência de sua construção contam histórias de fé e arte que atravessaram séculos. Mais do que um templo religioso, é um museu de arte sacra e um convite à contemplação e ao silêncio. Sinta a grandiosidade deste lugar e se conecte com a rica história religiosa e artística de Belém.`,
+    },
+    {
+        id: '24',
+        title: 'Tacaca Nazaré',
+        description: 'Um dos mais tradicionais e famosos da cidade',
+        image: require('../../assets/images/TacacaNazare.png'),
+        imageText: `Muito além de um simples ponto gastronômico, o Tacacá da Nazaré é um verdadeiro símbolo da cultura paraense. Reconhecido como Patrimônio Cultural Imaterial do Brasil, este local é uma parada obrigatória para quem deseja saborear a essência da Amazônia em uma única cuia. Localizado na movimentada Avenida Nazaré, em frente à majestosa Basílica, o tradicional tacacá servido ali mantém viva uma receita ancestral com jambu, tucupi e camarão seco — uma explosão de sabores que encanta gerações. Mais do que comida, é uma experiência afetiva e sensorial que conecta passado, presente e identidade de um povo.`,
+    },
+    {
+        id: '25',
+        title: 'Cobra Grande',
+        description: 'Uma das mais tradicionais e famosa lenda da cidade',
+        image: require('../../assets/images/cobragrande.png'),
+        imageText: `Reza a lenda que sob as fundações da Basílica Santuário de Nazaré repousa uma imensa Cobra Grande, guardiã ancestral da cidade. Dizem que a serpente foi acorrentada pelos padres jesuítas no século XVII, quando tentava devorar os fiéis durante a construção da primeira capela. Alguns juram ouvir seu silvo arrepiante nas noites de temporal, ou sentir o chão tremer quando a colossal criatura se move em seu sono milenar. A lenda se mistura à fé: muitos acreditam que a Cobra permanece contida pelo poder da Virgem de Nazaré, transformando-se em protetora da Basílica. Até hoje, moradores evitam passar sozinhos pelo local à meia-noite, temendo despertar a dorminhoca senhora das profundezas.`,
+    },
+];

@@ -170,9 +170,9 @@ export const localItems: Item[] = [
   },
   {
     id: '25',
-    title: 'COBRA GRANDE GULOSA',
-    description: 'Uma das mais tradicionais e famosos da cidade',
+    title: 'Cobra Grande',
+    description: 'Uma das mais tradicionais e famosa lenda da cidade',
     image: require('../../assets/images/cobragrande.png'),
-    imageText: `Muito além de um simples ponto gastronômico, o Tacacá da Nazaré é um verdadeiro símbolo da cultura paraense. Reconhecido como Patrimônio Cultural Imaterial do Brasil, este local é uma parada obrigatória para quem deseja saborear a essência da Amazônia em uma única cuia. Localizado na movimentada Avenida Nazaré, em frente à majestosa Basílica, o tradicional tacacá servido ali mantém viva uma receita ancestral com jambu, tucupi e camarão seco — uma explosão de sabores que encanta gerações. Mais do que comida, é uma experiência afetiva e sensorial que conecta passado, presente e identidade de um povo.`,
+    imageText: `Reza a lenda que sob as fundações da Basílica Santuário de Nazaré repousa uma imensa Cobra Grande, guardiã ancestral da cidade. Dizem que a serpente foi acorrentada pelos padres jesuítas no século XVII, quando tentava devorar os fiéis durante a construção da primeira capela. Alguns juram ouvir seu silvo arrepiante nas noites de temporal, ou sentir o chão tremer quando a colossal criatura se move em seu sono milenar. A lenda se mistura à fé: muitos acreditam que a Cobra permanece contida pelo poder da Virgem de Nazaré, transformando-se em protetora da Basílica. Até hoje, moradores evitam passar sozinhos pelo local à meia-noite, temendo despertar a dorminhoca senhora das profundezas.`,
   },
 ];
